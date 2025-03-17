@@ -1,19 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>services</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
 </head>
 <body>
-    <h1>nos services</h1>
-    <header><nav><ul><li>accueil</li>
-        <li>appropos</li>
-    <li>login</li></ul></nav></header>
-    <div>
-        <p>bienvenue a l'universite polyte</p>
-        <a href="{%url 'home'%}">accueil</a>
-        <a href="/">accueil</a>
-    </div>
+    <h1>Etes-vous sur vouloire supprimer cet etudiant?</h1>
+    <p>{{students.name}}</p>
+    <p>{{students.surname}}</p>
+    <form method="POST">
+        {% csr_token %}
+        <button type="submit">Supprimer</button>
+    </form>
+        <a href="{%url 'home'%}">retour a la liste</a>
+        
+    
 </body>
 </html>
